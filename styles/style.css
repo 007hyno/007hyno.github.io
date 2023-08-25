@@ -13,7 +13,30 @@
 
 * {
   margin: 0px;
+  animation: 1s ;
 }
+html::-webkit-scrollbar{
+display: none;
+}
+a:active{
+color:#6a2ba5 ;
+}
+a:visited{
+  counter-reset: red;
+}
+
+a{
+  font-weight: 900;
+  color: #8f41d8;
+  text-decoration: none;
+}
+.about-me{
+  font-style: normal;
+  font-size: 23px;
+  font-family: 'Lato', sans-serif;
+}
+
+
 
 .nav-svg {
   margin-top: 6px;
@@ -32,11 +55,13 @@
   border-radius: 3px;
 }
 .text_highlighted_round{
-  padding: 0px 3px;
-  border-radius: 3px;
+  padding: 0px 7px;
+  border-radius: 23px;
+  color: white;
+  background-color: #6a11b3a1;
 }
 .title_backgound_color{
-  background-color: #120824;
+  background-color: #21104188;
   padding: 0px 15px;
   border-radius: 4px;
 }
@@ -79,19 +104,31 @@ body {
 summary {
   color: #f8f2f2;
   font-size: 15px;
+  padding: 10px 5px;
+  border-radius: 10px;
 }
-
+summary:hover{
+  background-color: #8f41d822;
+  cursor: pointer;
+}
 details {
   font-size: 13px;
+}
+details:hover{
+  
 }
 
 mark {
   background-color: #8f41d8; /*Add your desired color*/
 }
-
+.sa{
+  margin-bottom: 10px;
+}
 .ps {
-  margin: 7px;
+  font-weight: 500;
+  margin: 0px 0px 15px 0px;
   border-radius: 6px;
+  line-height: 20px;
   padding: 5px 11px;
   color: #dbcde9;
   background-color: rgba(124, 71, 146, 0.2);
@@ -111,7 +148,7 @@ mark {
 
 .p3 {
   padding: 10px 0px 0px 0px;
-  margin: 0px 0px -7px 0px;
+  /* margin: 10px 0px -2px 0px; */
   font-weight: 900;
   font-size: 32px;
   font-family: "Bebas Neue", cursive;
