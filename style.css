@@ -18,10 +18,15 @@
 
     
 }
+a{
+    text-decoration: none;
+}
 div{
         /* border: 2px solid red; */
 }
-
+.bottomBar{
+    text-align: center;
+}
 body{
     background-color: var(--backgroundColor);
     color: var(--textPrimary);
@@ -35,6 +40,9 @@ body{
     border-radius: 1rem;
     transition: transform var(--transition-duration) ease-in-out;
 
+  }
+  h2,p,span,a{
+    color: var(--textPrimary);
   }
  
   a.cardView:hover{
