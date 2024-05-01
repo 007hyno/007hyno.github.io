@@ -75,6 +75,7 @@ body{
   .socialIcons{
     padding: 5px;
     border-radius: 1rem;
+    display: flex;
     background-color: var(--white);
     margin: 0px 5px ;
     transition: transform var(--transition-duration) ease-in-out;
