@@ -57,9 +57,10 @@ body{
   }
   .cardIcon{
     transform-origin: center;
-
     transition: transform var(--transition-duration) ease-in-out;
-  }
+    display: flex;
+}
+  
 
 
  
@@ -157,7 +158,13 @@ body{
         font-size: 1rem;
         line-height: 2rem;
         color: var(--textSecondary);
-
+        display: flex;
+        align-items: center;
+    }
+    .profileDesc h2 img{
+        width: 1.4rem;
+        opacity: 0.8;
+        margin-right: 0.5rem;
     }
     .profileBio h2{
         margin-top: 1.1rem;
@@ -208,6 +215,7 @@ body{
     .cardTop{
         padding: 24px 24px 3px 24px;
         display: flex;
+        align-items: center;
     
     }
     .cardIcon img{
