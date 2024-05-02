@@ -284,7 +284,11 @@ body{
         font-size: 0.8rem;
         line-height: 1.1rem;
         color: var(--textSecondary);
-
+    }
+    .profileDesc h2 img{
+        width: 1.2rem;
+        opacity: 0.8;
+        margin-right: 0.2rem;
     }
     .profileBio h2{
         margin-top: 0.8rem;
