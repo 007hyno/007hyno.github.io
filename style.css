@@ -28,7 +28,10 @@ body{
   font-family: "Rubik", sans-serif;
     font-weight: 100;
  }
-
+ .footer{
+    flex: 1; 
+    margin-bottom: 15px;
+}
  
  a.cardView {
     background-color: white ;
@@ -102,7 +105,7 @@ body{
 .cardTopright {
     border: 1px solid #dedede;
     border-radius: 20px;
-    padding: 2px 3px;
+    padding: 2px 2px;
     box-shadow: 2px 1px #cdcdcd;
 }
  .type{
@@ -114,7 +117,7 @@ body{
  }
  .type p{
     margin: 0 4px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 400;
     color: var(--textSecondary);
  }
@@ -122,7 +125,13 @@ body{
 
 /* When screen width is greater than 1024px */
 @media screen and (min-width: 1025px) {
+    .footer{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+    }
     .parent{
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         padding: 5rem;
@@ -328,6 +337,7 @@ body{
         /* padding: 24px 24px 3px 24px; */
         display: flex;
         align-items: center;
+        margin-bottom: 10px;
     
     }
     .cardIcon img{
