@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Bill Splitter</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="bridgeFont">Grocery <i>Bill Splitter</i></h1>
+        
+        <div class="extra-cost-section">
+            <h2>Extra Costs</h2>
+            <div class="input-group">
+                <label for="extraCost">Total Extra Cost:</label>
+                <input type="number" id="extraCost" placeholder="0.00" step="0.01" min="0">
+            </div>
+        </div>
+        
+        <div id="people-container">
+            <!-- Person cards will be added here -->
+        </div>
+        <div class="add-person-section">
+            <input type="text" id="newPersonName" placeholder="Enter name">
+            <button class="add-person-btn addButton" id="addPersonBtn">Add Person</button>
+        </div>
+        
+        <button class="calculate-btn calculate" id="calculateBtn">Calculate Split</button>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Splitted Bill</h2>
+            <div class="results-text" id="resultsText"></div>
+            <button class="copy-btn" id="copyBtn">Copy Results</button>
+        </div>
+    </div>
+
+</body>
+</html>
