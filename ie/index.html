@@ -3,90 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insurance Payment Calculator</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        label { display: block; margin: 10px 0 5px; }
-        input, select { width: 100%; padding: 8px; margin-bottom: 10px; }
-        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
-        #result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
-    </style>
+    <title>Insurance Claim Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h2>Insurance Payment Calculator</h2>
-        <label for="balance_sum_insured">Balance Sum Insured (₹):</label>
-        <input type="number" id="balance_sum_insured" step="0.01" required>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Insurance Claim Calculator</h1>
 
-        <label for="tentative_bill">Tentative Bill (₹):</label>
-        <input type="number" id="tentative_bill" step="0.01" required>
+        <div class="mb-4">
+            <label for="tentativeBill" class="block text-sm font-medium text-gray-700">Tentative Bill Amount</label>
+            <input type="number" id="tentativeBill" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 10000">
+        </div>
 
-        <label for="deductible">Deductible (₹):</label>
-        <input type="number" id="deductible" step="0.01" placeholder="Enter amount or leave blank for 'No'">
+        <div class="mb-4">
+            <label for="balanceSumInsured" class="block text-sm font-medium text-gray-700">Balance Sum Insured</label>
+            <input type="number" id="balanceSumInsured" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 50000">
+        </div>
 
-        <label for="copay">Copay (%):</label>
-        <input type="number" id="copay" step="0.01" placeholder="Enter percentage (0-100) or leave blank for 'No'">
+        <div class="mb-4">
+            <label for="sublimitCapping" class="block text-sm font-medium text-gray-700">Sublimit/Capping (Overall)</label>
+            <input type="number" id="sublimitCapping" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 8000">
+        </div>
 
-        <label for="sublimit">Sublimit (₹):</label>
-        <input type="number" id="sublimit" step="0.01" placeholder="Enter amount or leave blank for 'No'">
+        <div class="mb-4">
+            <label for="deductible" class="block text-sm font-medium text-gray-700">Deductible (Per Hospitalization)</label>
+            <input type="number" id="deductible" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 1000">
+        </div>
 
-        <button onclick="calculate()">Calculate</button>
+        <div class="mb-4">
+            <label for="copay" class="block text-sm font-medium text-gray-700">Copay (%)</label>
+            <input type="number" id="copay" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 10">
+        </div>
 
-        <div id="result" style="display: none;">
-            <p><strong>Insurance Share:</strong> ₹<span id="insurance_share"></span></p>
-            <p><strong>Patient Share:</strong> ₹<span id="patient_share"></span></p>
+        <button onclick="calculateClaim()" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Calculate</button>
+
+        <div id="results" class="mt-6 p-4 bg-gray-50 rounded-md">
+            <h2 class="text-lg font-semibold mb-2">Calculation Results:</h2>
+            <p id="insurancePays" class="mb-2"></p>
+            <p id="userPays"></p>
         </div>
     </div>
 
     <script>
-        // Function to format number with commas
-        function formatNumber(number) {
-            return number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-        }
+        function calculateClaim() {
+            const tentativeBill = parseFloat(document.getElementById('tentativeBill').value) || 0;
+            const balanceSumInsured = parseFloat(document.getElementById('balanceSumInsured').value) || 0;
+            const sublimitCapping = parseFloat(document.getElementById('sublimitCapping').value) || Infinity; // Use Infinity if no sublimit
+            const deductible = parseFloat(document.getElementById('deductible').value) || 0;
+            const copayPercentage = parseFloat(document.getElementById('copay').value) / 100 || 0;
 
-        function calculate() {
-            // Get input values
-            const balance_sum_insured = parseFloat(document.getElementById('balance_sum_insured').value) || 0;
-            const tentative_bill = parseFloat(document.getElementById('tentative_bill').value) || 0;
-            const deductible_input = document.getElementById('deductible').value;
-            const copay_input = document.getElementById('copay').value;
-            const sublimit_input = document.getElementById('sublimit').value;
+            let userPayment = 0;
+            let insurancePayout = 0;
 
-            // Process inputs
-            const deductible = deductible_input ? parseFloat(deductible_input) : 'No';
-            const copay = copay_input ? parseFloat(copay_input) / 100 : 'No';
-            const sublimit = sublimit_input ? parseFloat(sublimit_input) : 'No';
+            // Step 1: Apply Deductible
+            let amountAfterDeductible = tentativeBill - deductible;
+            userPayment += deductible;
 
-            // Calculate insurance payment
-            let amount_after_deductible;
-            if (deductible !== 'No') {
-                amount_after_deductible = Math.max(tentative_bill - deductible, 0);
+            if (amountAfterDeductible < 0) {
+                amountAfterDeductible = 0; // Deductible covers more than the bill
+                userPayment = tentativeBill; // User pays the full bill
+                insurancePayout = 0;
             } else {
-                amount_after_deductible = tentative_bill;
+                // Step 2: Apply Copay to the amount after deductible
+                const userCopayAmount = amountAfterDeductible * copayPercentage;
+                userPayment += userCopayAmount;
+
+                const amountAfterDeductibleAndCopay = amountAfterDeductible - userCopayAmount;
+
+                // Step 3 & 4: Determine Insurance Payout Limit and Actual Payout
+                const insuranceMaxLimit = Math.min(balanceSumInsured, sublimitCapping);
+                insurancePayout = Math.min(amountAfterDeductibleAndCopay, insuranceMaxLimit);
+
+                // Step 5: Adjust user payment if insurance hit a limit
+                userPayment += (amountAfterDeductibleAndCopay - insurancePayout);
             }
 
-            let coverage;
-            if (sublimit !== 'No') {
-                coverage = Math.min(balance_sum_insured, sublimit);
-            } else {
-                coverage = balance_sum_insured;
-            }
 
-            let patient_share, insurance_share;
-            if (copay !== 'No') {
-                patient_share = tentative_bill * copay;
-                insurance_share = Math.min(coverage, amount_after_deductible * (1 - copay));
-            } else {
-                patient_share = 0;
-                insurance_share = Math.min(coverage, amount_after_deductible);
-            }
-
-            // Display results with comma formatting
-            document.getElementById('insurance_share').textContent = formatNumber(insurance_share);
-            document.getElementById('patient_share').textContent = formatNumber(patient_share);
-            document.getElementById('result').style.display = 'block';
+            document.getElementById('insurancePays').innerText = `Insurance Pays: ${insurancePayout.toFixed(2)}`;
+            document.getElementById('userPays').innerText = `User Pays: ${userPayment.toFixed(2)}`;
         }
     </script>
 </body>
