@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Payment Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Insurance Payment Calculator</h2>
+        <label for="balance_sum_insured">Balance Sum Insured (₹):</label>
+        <input type="number" id="balance_sum_insured" step="0.01" required>
+
+        <label for="tentative_bill">Tentative Bill (₹):</label>
+        <input type="number" id="tentative_bill" step="0.01" required>
+
+        <label for="deductible">Deductible (₹):</label>
+        <input type="number" id="deductible" step="0.01" placeholder="Enter amount or leave blank for 'No'">
+
+        <label for="copay">Copay (%):</label>
+        <input type="number" id="copay" step="0.01" placeholder="Enter percentage (0-100) or leave blank for 'No'">
+
+        <label for="sublimit">Sublimit (₹):</label>
+        <input type="number" id="sublimit" step="0.01" placeholder="Enter amount or leave blank for 'No'">
+
+        <button onclick="calculate()">Calculate</button>
+
+        <div id="result" style="display: none;">
+            <p><strong>Insurance Share:</strong> ₹<span id="insurance_share"></span></p>
+            <p><strong>Patient Share:</strong> ₹<span id="patient_share"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to format number with commas
+        function formatNumber(number) {
+            return number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+
+        function calculate() {
+            // Get input values
+            const balance_sum_insured = parseFloat(document.getElementById('balance_sum_insured').value) || 0;
+            const tentative_bill = parseFloat(document.getElementById('tentative_bill').value) || 0;
+            const deductible_input = document.getElementById('deductible').value;
+            const copay_input = document.getElementById('copay').value;
+            const sublimit_input = document.getElementById('sublimit').value;
+
+            // Process inputs
+            const deductible = deductible_input ? parseFloat(deductible_input) : 'No';
+            const copay = copay_input ? parseFloat(copay_input) / 100 : 'No';
+            const sublimit = sublimit_input ? parseFloat(sublimit_input) : 'No';
+
+            // Calculate insurance payment
+            let amount_after_deductible;
+            if (deductible !== 'No') {
+                amount_after_deductible = Math.max(tentative_bill - deductible, 0);
+            } else {
+                amount_after_deductible = tentative_bill;
+            }
+
+            let coverage;
+            if (sublimit !== 'No') {
+                coverage = Math.min(balance_sum_insured, sublimit);
+            } else {
+                coverage = balance_sum_insured;
+            }
+
+            let patient_share, insurance_share;
+            if (copay !== 'No') {
+                patient_share = tentative_bill * copay;
+                insurance_share = Math.min(coverage, amount_after_deductible * (1 - copay));
+            } else {
+                patient_share = 0;
+                insurance_share = Math.min(coverage, amount_after_deductible);
+            }
+
+            // Display results with comma formatting
+            document.getElementById('insurance_share').textContent = formatNumber(insurance_share);
+            document.getElementById('patient_share').textContent = formatNumber(patient_share);
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
