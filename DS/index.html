@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structure Quiz</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        #question-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #question {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .option {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .option:hover {
+            background-color: #e0e0e0;
+        }
+
+        #feedback {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #next-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #next-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .correct {
+            background-color: #4CAF50 !important;
+            color: white;
+        }
+
+        .incorrect {
+            background-color: #f44336 !important;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label for="category">Select Category:</label>
+        <select id="category">
+            <option value="Array">Array</option>
+            <option value="Set">Set</option>
+            <option value="Queue">Queue</option>
+            <option value="PriorityQueue">PriorityQueue</option>
+            <option value="LinkedList">LinkedList</option>
+            <option value="Stack">Stack</option>
+            <option value="HashMap">HashMap</option>
+            <option value="TreeMap">TreeMap</option>
+            <option value="HashSet">HashSet</option>
+            <option value="LinkedHashSet">LinkedHashSet</option>
+            <option value="TreeSet">TreeSet</option>
+            <option value="String">String</option>
+            <option value="mix">Mix</option>
+        </select>
+    </div>
+
+    <div id="question-container">
+        <div id="question"></div>
+        <div class="options-grid" id="options-container">
+            </div>
+        <div id="feedback"></div>
+    </div>
+
+    <button id="next-btn">Next</button>
+
+    <script>
+        // JavaScript will go here
+        const categoryDropdown = document.getElementById('category');
+        const questionContainer = document.getElementById('question-container');
+        const questionElement = document.getElementById('question');
+        const optionsContainer = document.getElementById('options-container');
+        const feedbackElement = document.getElementById('feedback');
+        const nextButton = document.getElementById('next-btn');
+
+        let currentQuestion = null;
+        let questions = []; // Will hold the loaded questions
+
+        // Function to load questions from the data file
+        async function loadQuestions(category) {
+            try {
+                const response = await fetch('questions.json');
+                const data = await response.json();
+                if (category === 'mix') {
+                    questions = data; // Load all questions for the 'mix' category
+                } else {
+                    questions = data.filter(q => q.category === category);
+                }
+                if (questions.length > 0) {
+                    showQuestion();
+                } else {
+                    questionElement.innerText = `No questions available for the category: ${category}.`;
+                    optionsContainer.innerHTML = '';
+                    feedbackElement.innerText = '';
+                }
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                questionElement.innerText = 'Failed to load questions.';
+                optionsContainer.innerHTML = '';
+                feedbackElement.innerText = '';
+            }
+        }
+
+        function showQuestion() {
+            resetState();
+            currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+            questionElement.innerText = currentQuestion.question;
+
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option');
+                button.innerText = option;
+                button.dataset.index = index;
+                button.addEventListener('click', selectAnswer);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            feedbackElement.innerText = '';
+            while (optionsContainer.firstChild) {
+                optionsContainer.removeChild(optionsContainer.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const selectedAnswerIndex = parseInt(selectedButton.dataset.index);
+            const isCorrect = selectedAnswerIndex === currentQuestion.correctAnswerIndex;
+
+            Array.from(optionsContainer.children).forEach((button, index) => {
+                if (index === currentQuestion.correctAnswerIndex) {
+                    button.classList.add('correct');
+                }
+                button.disabled = true; // Disable further selection
+            });
+
+            if (isCorrect) {
+                selectedButton.classList.add('correct');
+                feedbackElement.innerText = 'Correct!';
+            } else {
+                selectedButton.classList.add('incorrect');
+                feedbackElement.innerText = `Incorrect. The correct answer was: ${currentQuestion.options[currentQuestion.correctAnswerIndex]}`;
+            }
+
+            nextButton.style.display = 'block';
+        }
+
+        nextButton.addEventListener('click', showQuestion);
+
+        categoryDropdown.addEventListener('change', (event) => {
+            loadQuestions(event.target.value);
+            nextButton.style.display = 'none'; // Hide next button when category changes
+            feedbackElement.innerText = '';
+            questions = []; // Clear previous questions
+            if (questionElement.innerText !== 'Failed to load questions.') {
+                questionElement.innerText = 'Loading questions...';
+                optionsContainer.innerHTML = '';
+            }
+        });
+
+        // Load initial questions based on the default selected category
+        loadQuestions(categoryDropdown.value);
+        nextButton.style.display = 'none'; // Initially hide the next button
+    </script>
+</body>
+</html>
