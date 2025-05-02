@@ -1,0 +1,722 @@
+[
+    {
+        "category": "Array",
+        "question": "What is the time complexity of accessing an element at a specific index in a Java array?",
+        "options": [
+            "O(n)",
+            "O(log n)",
+            "O(1)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Array",
+        "question": "Which method is used to get the length of a Java array?",
+        "options": [
+            ".size()",
+            ".length",
+            ".count()",
+            ".getLength()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "Array",
+        "question": "What happens when you attempt to access an index beyond the bounds of a Java array?",
+        "options": [
+            "It returns null",
+            "It returns 0",
+            "It throws ArrayIndexOutOfBoundsException",
+            "It automatically resizes the array"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Array",
+        "question": "Which Java method is used to copy a portion of an array into a new array?",
+        "options": [
+            "Arrays.copyOf()",
+            "Arrays.slice()",
+            "Arrays.subArray()",
+            "Arrays.extract()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "Set",
+        "question": "Which Java interface ensures all elements in the collection are unique?",
+        "options": [
+            "List",
+            "Queue",
+            "Set",
+            "Map"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Set",
+        "question": "Which Set implementation in Java offers constant-time performance for add, remove, and contains operations, with no specific order?",
+        "options": [
+            "TreeSet",
+            "LinkedHashSet",
+            "HashSet",
+            "SortedSet"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Set",
+        "question": "What is the average time complexity of checking if an element exists in a HashSet?",
+        "options": [
+            "O(n)",
+            "O(log n)",
+            "O(1)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Set",
+        "question": "Which method is used to add all elements from one Set to another in Java?",
+        "options": [
+            ".addAll()",
+            ".merge()",
+            ".union()",
+            ".appendAll()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "Queue",
+        "question": "Which Java interface represents a First-In, First-Out (FIFO) collection for holding elements before processing?",
+        "options": [
+            "List",
+            "Set",
+            "Queue",
+            "Stack"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Queue",
+        "question": "Which method adds an element to the end of a Queue without throwing an exception if the operation fails?",
+        "options": [
+            ".add()",
+            ".push()",
+            ".offer()",
+            ".enqueue()"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Queue",
+        "question": "Which method retrieves and removes the head of a Queue, returning null if the Queue is empty?",
+        "options": [
+            ".remove()",
+            ".pop()",
+            ".poll()",
+            ".dequeue()"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "PriorityQueue",
+        "question": "What defines the ordering of elements in a Java PriorityQueue?",
+        "options": [
+            "Order of insertion",
+            "Reverse order of insertion",
+            "Natural ordering or a custom Comparator",
+            "Random order"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "PriorityQueue",
+        "question": "Which method adds an element to a PriorityQueue in Java?",
+        "options": [
+            ".add()",
+            ".push()",
+            ".offer()",
+            ".insert()"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "PriorityQueue",
+        "question": "What is the time complexity of adding an element to a PriorityQueue in Java?",
+        "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "PriorityQueue",
+        "question": "Which method retrieves but does not remove the head of a PriorityQueue?",
+        "options": [
+            ".get()",
+            ".peek()",
+            ".poll()",
+            ".head()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "LinkedList",
+        "question": "Which Java class implements both List and Deque, allowing constant-time insertions and deletions at both ends?",
+        "options": [
+            "ArrayList",
+            "HashSet",
+            "LinkedList",
+            "Vector"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "LinkedList",
+        "question": "Which method adds an element to the beginning of a LinkedList in Java?",
+        "options": [
+            ".addFirst()",
+            ".push()",
+            ".offerFirst()",
+            ".addToFront()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "LinkedList",
+        "question": "What is the worst-case time complexity of accessing an element at a specific index in a LinkedList?",
+        "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "LinkedList",
+        "question": "Which method removes and returns the last element of a LinkedList?",
+        "options": [
+            ".removeLast()",
+            ".popLast()",
+            ".pollLast()",
+            ".getLast()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "Stack",
+        "question": "Which Java class implements a Last-In, First-Out (LIFO) stack?",
+        "options": [
+            "Queue",
+            "ArrayList",
+            "Stack",
+            "LinkedList"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Stack",
+        "question": "Which method adds an element to the top of a Stack in Java?",
+        "options": [
+            ".add()",
+            ".push()",
+            ".offer()",
+            ".insert()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "Stack",
+        "question": "Which method retrieves but does not remove the top element of a Stack?",
+        "options": [
+            ".get()",
+            ".peek()",
+            ".pop()",
+            ".top()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "HashMap",
+        "question": "Which Java class implements the Map interface, allowing null keys and values, and uses a hash table?",
+        "options": [
+            "TreeMap",
+            "Hashtable",
+            "HashMap",
+            "LinkedHashMap"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "HashMap",
+        "question": "Which method adds or updates a key-value pair in a HashMap?",
+        "options": [
+            ".add()",
+            ".put()",
+            ".insert()",
+            ".store()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "HashMap",
+        "question": "Which HashMap method retrieves a value for a key, returning a default value if the key is not found?",
+        "options": [
+            ".get()",
+            ".getOrDefault()",
+            ".retrieve()",
+            ".fetch()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "HashMap",
+        "question": "Which method checks if a HashMap contains a specific key?",
+        "options": [
+            ".hasKey()",
+            ".containsKey()",
+            ".keyExists()",
+            ".includesKey()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "HashMap",
+        "question": "Which Map implementation preserves the insertion order of key-value pairs?",
+        "options": [
+            "HashMap",
+            "TreeMap",
+            "LinkedHashMap",
+            "Hashtable"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "TreeMap",
+        "question": "Which Java class implements SortedMap and stores key-value pairs in sorted key order?",
+        "options": [
+            "HashMap",
+            "Hashtable",
+            "TreeMap",
+            "LinkedHashMap"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "TreeMap",
+        "question": "What is the time complexity of adding a key-value pair to a TreeMap?",
+        "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "TreeMap",
+        "question": "Which TreeMap method returns the least key greater than or equal to a given key, or null if no such key exists?",
+        "options": [
+            ".higherKey()",
+            ".ceilingKey()",
+            ".floorKey()",
+            ".nextKey()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "HashSet",
+        "question": "Which Java class implements the Set interface using a hash table?",
+        "options": [
+            "TreeSet",
+            "LinkedHashSet",
+            "HashSet",
+            "SortedSet"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "HashSet",
+        "question": "Which method removes all elements from a HashSet that are present in a specified collection?",
+        "options": [
+            ".removeAll()",
+            ".clear()",
+            ".deleteAll()",
+            ".subtract()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "HashSet",
+        "question": "Does HashSet maintain the insertion order of elements?",
+        "options": [
+            "Yes",
+            "No"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "LinkedHashSet",
+        "question": "Which Java class implements Set and maintains insertion order using a linked list?",
+        "options": [
+            "HashSet",
+            "TreeSet",
+            "LinkedHashSet",
+            "SortedSet"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "LinkedHashSet",
+        "question": "Does LinkedHashSet allow duplicate elements?",
+        "options": [
+            "Yes",
+            "No"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "LinkedHashSet",
+        "question": "What is the time complexity of iterating over all elements in a LinkedHashSet?",
+        "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "TreeSet",
+        "question": "Which Java class implements SortedSet using a self-balancing binary search tree?",
+        "options": [
+            "HashSet",
+            "LinkedHashSet",
+            "TreeSet",
+            "PriorityQueue"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "TreeSet",
+        "question": "Which method returns the least element in a TreeSet greater than or equal to a given element?",
+        "options": [
+            ".higher()",
+            ".ceiling()",
+            ".floor()",
+            ".next()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "TreeSet",
+        "question": "Does TreeSet allow null elements?",
+        "options": [
+            "Yes",
+            "No"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "Hashtable",
+        "question": "Which Java class is synchronized, implements Map, and does not allow null keys or values?",
+        "options": [
+            "TreeMap",
+            "Hashtable",
+            "ConcurrentHashMap",
+            "LinkedHashMap"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "Hashtable",
+        "question": "What happens when you attempt to insert a null key into a Hashtable?",
+        "options": [
+            "It inserts the null key",
+            "It throws NullPointerException",
+            "It ignores the insertion",
+            "It causes undefined behavior"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "Hashtable",
+        "question": "Which method retrieves all keys from a Hashtable?",
+        "options": [
+            ".keys()",
+            ".keySet()",
+            ".getKeys()",
+            ".allKeys()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "Vector",
+        "question": "Which Java class is a synchronized dynamic array, similar to ArrayList?",
+        "options": [
+            "LinkedList",
+            "HashSet",
+            "Vector",
+            "Stack"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Vector",
+        "question": "Which method adds an element to the end of a Vector?",
+        "options": [
+            ".add()",
+            ".push()",
+            ".append()",
+            ".addElement()"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "category": "Vector",
+        "question": "What is the time complexity of accessing an element by index in a Vector?",
+        "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "ArrayList",
+        "question": "Which Java class implements List using a resizable array?",
+        "options": [
+            "LinkedList",
+            "HashSet",
+            "ArrayList",
+            "Vector"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "ArrayList",
+        "question": "Which method returns a view of a portion of an ArrayList between two indices?",
+        "options": [
+            ".slice()",
+            ".subList()",
+            ".substring()",
+            ".partition()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "ArrayList",
+        "question": "Which method replaces an element at a specified index in an ArrayList?",
+        "options": [
+            ".put()",
+            ".set()",
+            ".replace()",
+            ".update()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "Deque",
+        "question": "Which Java interface supports insertion and deletion at both ends?",
+        "options": [
+            "Queue",
+            "List",
+            "Deque",
+            "Set"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Deque",
+        "question": "Which method adds an element to the front of a Deque?",
+        "options": [
+            ".addFirst()",
+            ".push()",
+            ".offerFirst()",
+            ".addToFront()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "Deque",
+        "question": "Which Java class implements Deque using a resizable array, often used for sliding window problems?",
+        "options": [
+            "LinkedList",
+            "ArrayList",
+            "ArrayDeque",
+            "PriorityQueue"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "Map",
+        "question": "Which Java interface maps keys to values?",
+        "options": [
+            "List",
+            "Set",
+            "Queue",
+            "Map"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "category": "Map",
+        "question": "Which method retrieves all values from a Map?",
+        "options": [
+            ".values()",
+            ".getValues()",
+            ".allValues()",
+            ".valueSet()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "Map",
+        "question": "Which Map implementation preserves the insertion order of key-value pairs?",
+        "options": [
+            "HashMap",
+            "TreeMap",
+            "LinkedHashMap",
+            "Hashtable"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "String",
+        "question": "Which Java method returns the length of a String?",
+        "options": [
+            ".size()",
+            ".length()",
+            ".count()",
+            ".getSize()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "String",
+        "question": "Which method converts a String into an array of characters?",
+        "options": [
+            ".toCharArray()",
+            ".split()",
+            ".getChars()",
+            ".charArray()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "String",
+        "question": "Which approach is commonly used to check if a String represents a valid integer in Java?",
+        "options": [
+            "Use String.isNumeric()",
+            "Use Character.isDigit() on each character",
+            "Try Integer.parseInt() and catch NumberFormatException",
+            "Use String.matches() with a regex"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "String",
+        "question": "Which method extracts a substring from a String starting at a given index to the end?",
+        "options": [
+            ".substring(startIndex, endIndex)",
+            ".substring(startIndex)",
+            ".slice(startIndex)",
+            ".sub(startIndex)"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "String",
+        "question": "Which method checks if a String contains a specified subsequence of characters?",
+        "options": [
+            ".includes()",
+            ".contains()",
+            ".has()",
+            ".find()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "String",
+        "question": "Which method splits a String into an array based on a delimiter?",
+        "options": [
+            ".divide()",
+            ".break()",
+            ".split()",
+            ".segment()"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "StringBuilder",
+        "question": "Which Java class is used for mutable string manipulation, often in LeetCode problems?",
+        "options": [
+            "String",
+            "StringBuffer",
+            "StringBuilder",
+            "CharArray"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "StringBuilder",
+        "question": "Which StringBuilder method appends a string to the end of the current sequence?",
+        "options": [
+            ".add()",
+            ".append()",
+            ".concat()",
+            ".join()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "StringBuilder",
+        "question": "Which StringBuilder method reverses the character sequence?",
+        "options": [
+            ".reverse()",
+            ".flip()",
+            ".invert()",
+            ".mirror()"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "category": "ArrayDeque",
+        "question": "Which Java class implements Deque with a resizable array, suitable for sliding window problems?",
+        "options": [
+            "LinkedList",
+            "ArrayList",
+            "ArrayDeque",
+            "PriorityQueue"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "category": "ArrayDeque",
+        "question": "Which method retrieves but does not remove the last element of an ArrayDeque?",
+        "options": [
+            ".getLast()",
+            ".peekLast()",
+            ".pollLast()",
+            ".last()"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "category": "ArrayDeque",
+        "question": "What is the time complexity of adding an element to the front of an ArrayDeque?",
+        "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n log n)"
+        ],
+        "correctAnswerIndex": 0
+    }
+]

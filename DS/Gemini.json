@@ -1,7 +1,7 @@
 [
     {
         "category": "Array",
-        "question": "What is the time complexity of accessing an element at a specific index in a Java array?",
+        "question": "G: What is the time complexity of accessing an element at a specific index in a Java array?",
         "options": [
             "O(n)",
             "O(log n)",
@@ -12,7 +12,7 @@
     },
     {
         "category": "Array",
-        "question": "Which method is typically used to get the number of elements in a Java array?",
+        "question": "G: Which method is typically used to get the number of elements in a Java array?",
         "options": [
             ".size()",
             ".length()",
@@ -23,7 +23,7 @@
     },
     {
         "category": "Array",
-        "question": "What happens when you try to access an element at an index that is out of bounds in a Java array?",
+        "question": "G: What happens when you try to access an element at an index that is out of bounds in a Java array?",
         "options": [
             "It returns null",
             "It returns 0",
@@ -34,7 +34,7 @@
     },
     {
         "category": "Set",
-        "question": "Which Java interface guarantees that all elements in the collection are unique?",
+        "question": "G: Which Java interface guarantees that all elements in the collection are unique?",
         "options": [
             "List",
             "Queue",
@@ -45,7 +45,7 @@
     },
     {
         "category": "Set",
-        "question": "Which `Set` implementation in Java provides elements in no particular order and offers constant-time performance for basic operations?",
+        "question": "G: Which `Set` implementation in Java provides elements in no particular order and offers constant-time performance for basic operations?",
         "options": [
             "TreeSet",
             "LinkedHashSet",
@@ -56,7 +56,7 @@
     },
     {
         "category": "Set",
-        "question": "What is the time complexity of checking if an element exists in a `HashSet` on average?",
+        "question": "G: What is the time complexity of checking if an element exists in a `HashSet` on average?",
         "options": [
             "O(n)",
             "O(log n)",
@@ -67,7 +67,7 @@
     },
     {
         "category": "Queue",
-        "question": "Which Java interface represents a collection designed for holding elements prior to processing, following a First-In, First-Out (FIFO) principle?",
+        "question": "G: Which Java interface represents a collection designed for holding elements prior to processing, following a First-In, First-Out (FIFO) principle?",
         "options": [
             "List",
             "Set",
@@ -78,7 +78,7 @@
     },
     {
         "category": "Queue",
-        "question": "Which method is typically used to add an element to the end of a `Queue` in Java?",
+        "question": "G: Which method is typically used to add an element to the end of a `Queue` in Java?",
         "options": [
             ".add()",
             ".push()",
@@ -89,7 +89,7 @@
     },
     {
         "category": "Queue",
-        "question": "Which method is typically used to remove and return the element at the front of a `Queue` in Java?",
+        "question": "G: Which method is typically used to remove and return the element at the front of a `Queue` in Java?",
         "options": [
             ".remove()",
             ".pop()",
@@ -100,7 +100,7 @@
     },
     {
         "category": "PriorityQueue",
-        "question": "What is the primary characteristic of a `PriorityQueue` in Java?",
+        "question": "G: What is the primary characteristic of a `PriorityQueue` in Java?",
         "options": [
             "It maintains elements in the order they were added",
             "It maintains elements in reverse order of their addition",
@@ -111,7 +111,7 @@
     },
     {
         "category": "PriorityQueue",
-        "question": "Which method is used to add an element to a `PriorityQueue` in Java?",
+        "question": "G: Which method is used to add an element to a `PriorityQueue` in Java?",
         "options": [
             ".add()",
             ".push()",
@@ -122,7 +122,7 @@
     },
     {
         "category": "PriorityQueue",
-        "question": "What is the time complexity of adding an element to a `PriorityQueue` in Java?",
+        "question": "G: What is the time complexity of adding an element to a `PriorityQueue` in Java?",
         "options": [
             "O(1)",
             "O(n)",
@@ -133,7 +133,7 @@
     },
     {
         "category": "LinkedList",
-        "question": "Which Java class implements the `List` and `Deque` interfaces, providing constant-time insertion and deletion at both ends?",
+        "question": "G: Which Java class implements the `List` and `Deque` interfaces, providing constant-time insertion and deletion at both ends?",
         "options": [
             "ArrayList",
             "HashSet",
@@ -144,7 +144,7 @@
     },
     {
         "category": "LinkedList",
-        "question": "Which method is used to add an element to the beginning of a `LinkedList` in Java?",
+        "question": "G: Which method is used to add an element to the beginning of a `LinkedList` in Java?",
         "options": [
             ".addFirst()",
             ".push()",
@@ -155,7 +155,7 @@
     },
     {
         "category": "LinkedList",
-        "question": "What is the time complexity of accessing an element at a specific index in a `LinkedList` in the worst case?",
+        "question": "G: What is the time complexity of accessing an element at a specific index in a `LinkedList` in the worst case?",
         "options": [
             "O(1)",
             "O(log n)",
@@ -166,7 +166,7 @@
     },
     {
         "category": "Stack",
-        "question": "Which Java class represents a last-in-first-out (LIFO) stack of objects?",
+        "question": "G: Which Java class represents a last-in-first-out (LIFO) stack of objects?",
         "options": [
             "Queue",
             "ArrayList",
@@ -177,7 +177,7 @@
     },
     {
         "category": "Stack",
-        "question": "Which method is used to add an element to the top of a `Stack` in Java?",
+        "question": "G: Which method is used to add an element to the top of a `Stack` in Java?",
         "options": [
             ".add()",
             ".push()",
@@ -188,7 +188,7 @@
     },
     {
         "category": "Stack",
-        "question": "Which method is used to remove and return the element at the top of a `Stack` in Java?",
+        "question": "G: Which method is used to remove and return the element at the top of a `Stack` in Java?",
         "options": [
             ".remove()",
             ".pop()",
@@ -199,7 +199,7 @@
     },
     {
         "category": "HashMap",
-        "question": "Which Java class implements the `Map` interface and stores key-value pairs, allowing null keys and null values?",
+        "question": "G: Which Java class implements the `Map` interface and stores key-value pairs, allowing null keys and null values?",
         "options": [
             "TreeMap",
             "Hashtable",
@@ -210,7 +210,7 @@
     },
     {
         "category": "HashMap",
-        "question": "Which method is used to add a key-value pair to a `HashMap` in Java?",
+        "question": "G: Which method is used to add a key-value pair to a `HashMap` in Java?",
         "options": [
             ".add()",
             ".put()",
@@ -221,7 +221,7 @@
     },
     {
         "category": "HashMap",
-        "question": "What is the average time complexity of retrieving a value based on its key in a `HashMap`?",
+        "question": "G: What is the average time complexity of retrieving a value based on its key in a `HashMap`?",
         "options": [
             "O(n)",
             "O(log n)",
@@ -232,7 +232,7 @@
     },
     {
         "category": "TreeMap",
-        "question": "Which Java class implements the `SortedMap` interface, storing key-value pairs in a sorted order of keys?",
+        "question": "G: Which Java class implements the `SortedMap` interface, storing key-value pairs in a sorted order of keys?",
         "options": [
             "HashMap",
             "Hashtable",
@@ -243,7 +243,7 @@
     },
     {
         "category": "TreeMap",
-        "question": "What is the time complexity of adding a key-value pair to a `TreeMap`?",
+        "question": "G: What is the time complexity of adding a key-value pair to a `TreeMap`?",
         "options": [
             "O(1)",
             "O(n)",
@@ -254,7 +254,7 @@
     },
     {
         "category": "TreeMap",
-        "question": "Which method in `TreeMap` is used to retrieve and remove the first (lowest) key currently in the map?",
+        "question": "G: Which method in `TreeMap` is used to retrieve and remove the first (lowest) key currently in the map?",
         "options": [
             ".getFirstKey()",
             ".pollFirstKey()",
@@ -265,7 +265,7 @@
     },
     {
         "category": "HashSet",
-        "question": "Which Java class implements the `Set` interface using a hash table?",
+        "question": "G: Which Java class implements the `Set` interface using a hash table?",
         "options": [
             "TreeSet",
             "LinkedHashSet",
@@ -276,7 +276,7 @@
     },
     {
         "category": "HashSet",
-        "question": "Does `HashSet` allow duplicate elements?",
+        "question": "G: Does `HashSet` allow duplicate elements?",
         "options": [
             "Yes",
             "No"
@@ -285,7 +285,7 @@
     },
     {
         "category": "HashSet",
-        "question": "Does `HashSet` maintain the insertion order of elements?",
+        "question": "G: Does `HashSet` maintain the insertion order of elements?",
         "options": [
             "Yes",
             "No"
@@ -294,7 +294,7 @@
     },
     {
         "category": "LinkedHashSet",
-        "question": "Which Java class implements the `Set` interface using a hash table and a linked list to maintain the insertion order of elements?",
+        "question": "G: Which Java class implements the `Set` interface using a hash table and a linked list to maintain the insertion order of elements?",
         "options": [
             "HashSet",
             "TreeSet",
@@ -305,7 +305,7 @@
     },
     {
         "category": "LinkedHashSet",
-        "question": "Does `LinkedHashSet` allow duplicate elements?",
+        "question": "G: Does `LinkedHashSet` allow duplicate elements?",
         "options": [
             "Yes",
             "No"
@@ -314,7 +314,7 @@
     },
     {
         "category": "LinkedHashSet",
-        "question": "Does `LinkedHashSet` maintain the insertion order of elements?",
+        "question": "G: Does `LinkedHashSet` maintain the insertion order of elements?",
         "options": [
             "Yes",
             "No"
@@ -323,7 +323,7 @@
     },
     {
         "category": "TreeSet",
-        "question": "Which Java class implements the `SortedSet` interface using a self-balancing binary search tree (like a Red-Black Tree)?",
+        "question": "G: Which Java class implements the `SortedSet` interface using a self-balancing binary search tree (like a Red-Black Tree)?",
         "options": [
             "HashSet",
             "LinkedHashSet",
@@ -334,7 +334,7 @@
     },
     {
         "category": "TreeSet",
-        "question": "Does `TreeSet` allow duplicate elements?",
+        "question": "G: Does `TreeSet` allow duplicate elements?",
         "options": [
             "Yes",
             "No"
@@ -343,7 +343,7 @@
     },
     {
         "category": "TreeSet",
-        "question": "In what order does `TreeSet` typically store its elements?",
+        "question": "G: In what order does `TreeSet` typically store its elements?",
         "options": [
             "Insertion order",
             "Reverse of insertion order",
@@ -354,7 +354,7 @@
     },
     {
         "category": "Hashtable",
-        "question": "Which Java class, similar to HashMap, is synchronized and does not allow null keys or null values?",
+        "question": "G: Which Java class, similar to HashMap, is synchronized and does not allow null keys or null values?",
         "options": [
             "TreeMap",
             "Hashtable",
@@ -365,7 +365,7 @@
     },
     {
         "category": "Hashtable",
-        "question": "Is `Hashtable` generally preferred over `HashMap` in modern multithreaded Java applications?",
+        "question": "G: Is `Hashtable` generally preferred over `HashMap` in modern multithreaded Java applications?",
         "options": [
             "Yes",
             "No, `ConcurrentHashMap` is generally preferred",
@@ -376,7 +376,7 @@
     },
     {
         "category": "Hashtable",
-        "question": "What happens if you try to insert a null key into a `Hashtable`?",
+        "question": "G: What happens if you try to insert a null key into a `Hashtable`?",
         "options": [
             "It inserts the null key without any issue",
             "It throws a NullPointerException",
@@ -387,7 +387,7 @@
     },
     {
         "category": "Vector",
-        "question": "Which Java class is a dynamic array, similar to `ArrayList`, but is synchronized?",
+        "question": "G: Which Java class is a dynamic array, similar to `ArrayList`, but is synchronized?",
         "options": [
             "LinkedList",
             "HashSet",
@@ -398,7 +398,7 @@
     },
     {
         "category": "Vector",
-        "question": "What is a potential performance drawback of using `Vector` in a single-threaded environment compared to `ArrayList`?",
+        "question": "G: What is a potential performance drawback of using `Vector` in a single-threaded environment compared to `ArrayList`?",
         "options": [
             "`Vector` has faster element access",
             "`Vector`'s synchronization can introduce overhead",
@@ -409,7 +409,7 @@
     },
     {
         "category": "Vector",
-        "question": "Which method is used to add an element to the end of a `Vector`?",
+        "question": "G: Which method is used to add an element to the end of a `Vector`?",
         "options": [
             ".add()",
             ".push()",
@@ -420,7 +420,7 @@
     },
     {
         "category": "ArrayList",
-        "question": "Which Java class implements the `List` interface using a resizable array?",
+        "question": "G: Which Java class implements the `List` interface using a resizable array?",
         "options": [
             "LinkedList",
             "HashSet",
@@ -431,7 +431,7 @@
     },
     {
         "category": "ArrayList",
-        "question": "What is the average time complexity of adding an element to the end of an `ArrayList`?",
+        "question": "G: What is the average time complexity of adding an element to the end of an `ArrayList`?",
         "options": [
             "O(n)",
             "O(log n)",
@@ -442,7 +442,7 @@
     },
     {
         "category": "ArrayList",
-        "question": "What happens when an `ArrayList` reaches its capacity and you try to add more elements?",
+        "question": "G: What happens when an `ArrayList` reaches its capacity and you try to add more elements?",
         "options": [
             "It throws an exception",
             "It silently discards the new elements",
@@ -453,7 +453,7 @@
     },
     {
         "category": "Deque",
-        "question": "Which Java interface represents a double-ended queue, allowing insertion and deletion at both ends?",
+        "question": "G: Which Java interface represents a double-ended queue, allowing insertion and deletion at both ends?",
         "options": [
             "Queue",
             "List",
@@ -464,7 +464,7 @@
     },
     {
         "category": "Deque",
-        "question": "Which method is used to add an element to the front of a `Deque` in Java?",
+        "question": "G: Which method is used to add an element to the front of a `Deque` in Java?",
         "options": [
             ".addFirst()",
             ".push()",
@@ -475,7 +475,7 @@
     },
     {
         "category": "Deque",
-        "question": "Which data structures in Java can be used to implement the `Deque` interface?",
+        "question": "G: Which data structures in Java can be used to implement the `Deque` interface?",
         "options": [
             "ArrayList and HashSet",
             "LinkedList and ArrayDeque",
@@ -486,7 +486,7 @@
     },
     {
         "category": "Map",
-        "question": "Which Java interface represents a collection that maps keys to values?",
+        "question": "G: Which Java interface represents a collection that maps keys to values?",
         "options": [
             "List",
             "Set",
@@ -497,7 +497,7 @@
     },
     {
         "category": "Map",
-        "question": "What is the general term for the operation of finding a value associated with a given key in a `Map`?",
+        "question": "G: What is the general term for the operation of finding a value associated with a given key in a `Map`?",
         "options": [
             "Insertion",
             "Deletion",
@@ -508,7 +508,7 @@
     },
     {
         "category": "Map",
-        "question": "Which of the following is NOT a direct implementation of the `Map` interface in the standard Java library?",
+        "question": "G: Which of the following is NOT a direct implementation of the `Map` interface in the standard Java library?",
         "options": [
             "HashMap",
             "TreeMap",
@@ -519,7 +519,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method is used to find the length of a String?",
+        "question": "G: Which Java method is used to find the length of a String?",
         "options": [
             ".size()",
             ".length()",
@@ -530,7 +530,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method returns the character at a specified index in a String?",
+        "question": "G: Which Java method returns the character at a specified index in a String?",
         "options": [
             ".getChar()",
             ".charAt()",
@@ -541,7 +541,7 @@
     },
     {
         "category": "String",
-        "question": "What is the index of the first character in a Java String?",
+        "question": "G: What is the index of the first character in a Java String?",
         "options": [
             "0",
             "1",
@@ -552,7 +552,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method is used to concatenate (join) two or more Strings?",
+        "question": "G: Which Java method is used to concatenate (join) two or more Strings?",
         "options": [
             ".join()",
             ".merge()",
@@ -563,7 +563,7 @@
     },
     {
         "category": "String",
-        "question": "Which of the following is the correct way to compare two Strings for equality in Java?",
+        "question": "G: Which of the following is the correct way to compare two Strings for equality in Java?",
         "options": [
             "string1 == string2",
             "string1.equals(string2)",
@@ -574,7 +574,7 @@
     },
     {
         "category": "String",
-        "question": "What does the `compareTo()` method of the String class return if the String is lexicographically greater than the other String?",
+        "question": "G: What does the `compareTo()` method of the String class return if the String is lexicographically greater than the other String?",
         "options": [
             "0",
             "A negative value",
@@ -585,7 +585,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method extracts a substring from a String?",
+        "question": "G: Which Java method extracts a substring from a String?",
         "options": [
             ".slice()",
             ".sub()",
@@ -596,7 +596,7 @@
     },
     {
         "category": "String",
-        "question": "Which `substring()` method signature is used to extract a substring starting from a specified index to the end of the String?",
+        "question": "G: Which `substring()` method signature is used to extract a substring starting from a specified index to the end of the String?",
         "options": [
             ".substring(startIndex, endIndex)",
             ".substring(startIndex)",
@@ -607,7 +607,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method converts all the characters in a String to lowercase?",
+        "question": "G: Which Java method converts all the characters in a String to lowercase?",
         "options": [
             ".toLowerCase()",
             ".lowerCase()",
@@ -618,7 +618,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method converts all the characters in a String to uppercase?",
+        "question": "G: Which Java method converts all the characters in a String to uppercase?",
         "options": [
             ".toUpperCase()",
             ".upperCase()",
@@ -629,7 +629,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method removes leading and trailing whitespace from a String?",
+        "question": "G: Which Java method removes leading and trailing whitespace from a String?",
         "options": [
             ".trim()",
             ".strip()",
@@ -640,7 +640,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method checks if a String starts with a specified prefix?",
+        "question": "G: Which Java method checks if a String starts with a specified prefix?",
         "options": [
             ".startsWith()",
             ".hasPrefix()",
@@ -651,7 +651,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method checks if a String ends with a specified suffix?",
+        "question": "G: Which Java method checks if a String ends with a specified suffix?",
         "options": [
             ".endsWith()",
             ".hasSuffix()",
@@ -662,7 +662,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method returns the index of the first occurrence of a specified substring within a String?",
+        "question": "G: Which Java method returns the index of the first occurrence of a specified substring within a String?",
         "options": [
             ".indexOf()",
             ".search()",
@@ -673,7 +673,7 @@
     },
     {
         "category": "String",
-        "question": "What does the `indexOf()` method return if the specified substring is not found in the String?",
+        "question": "G: What does the `indexOf()` method return if the specified substring is not found in the String?",
         "options": [
             "-1",
             "0",
@@ -684,7 +684,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method replaces all occurrences of a specified character with another character?",
+        "question": "G: Which Java method replaces all occurrences of a specified character with another character?",
         "options": [
             ".replace()",
             ".replaceAll()",
@@ -695,7 +695,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method splits a String into an array of substrings based on a given delimiter?",
+        "question": "G: Which Java method splits a String into an array of substrings based on a given delimiter?",
         "options": [
             ".divide()",
             ".break()",
@@ -706,7 +706,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method checks if a String is empty (has a length of zero)?",
+        "question": "G: Which Java method checks if a String is empty (has a length of zero)?",
         "options": [
             ".isEmpty()",
             ".isNull()",
@@ -717,7 +717,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method returns a new String that is a result of replacing a sequence of character matching a regular expression with a replacement String?",
+        "question": "G: Which Java method returns a new String that is a result of replacing a sequence of character matching a regular expression with a replacement String?",
         "options": [
             ".replace()",
             ".replaceAll()",
@@ -728,7 +728,7 @@
     },
     {
         "category": "String",
-        "question": "Which Java method returns a new String resulting from replacing the first occurrence of a substring that matches the regex with the replacement String?",
+        "question": "G: Which Java method returns a new String resulting from replacing the first occurrence of a substring that matches the regex with the replacement String?",
         "options": [
             ".replace()",
             ".replaceAll()",

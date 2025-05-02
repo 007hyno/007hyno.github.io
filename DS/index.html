@@ -81,8 +81,17 @@
 </head>
 <body>
     <div class="controls">
+        <label for="source">Select source:</label>
+        <select id="source">
+            <option value="ChatGpt">ChatGpt</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Grok">Grok</option>
+        </select>
+    </div>
+    <div class="controls">
         <label for="category">Select Category:</label>
         <select id="category">
+            <option value="mix">Mix</option>
             <option value="Array">Array</option>
             <option value="Set">Set</option>
             <option value="Queue">Queue</option>
@@ -95,7 +104,6 @@
             <option value="LinkedHashSet">LinkedHashSet</option>
             <option value="TreeSet">TreeSet</option>
             <option value="String">String</option>
-            <option value="mix">Mix</option>
         </select>
     </div>
 
@@ -109,28 +117,44 @@
     <button id="next-btn">Next</button>
 
     <script>
-        // JavaScript will go here
         const categoryDropdown = document.getElementById('category');
+        const sourceDropdown = document.getElementById('source');
         const questionContainer = document.getElementById('question-container');
         const questionElement = document.getElementById('question');
         const optionsContainer = document.getElementById('options-container');
         const feedbackElement = document.getElementById('feedback');
-        const nextButton = document.getElementById('next-btn');
-
+        const nextButton = document.getElementById('next-btn'); 
+    
+        let source = 'ChatGpt'; 
         let currentQuestion = null;
-        let questions = []; // Will hold the loaded questions
-
-        // Function to load questions from the data file
+        let questions = [];
+        let shuffledQuestions = [];
+        let currentIndex = 0;
+    
+        // Utility: shuffle an array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+    
+        // Load questions and shuffle
         async function loadQuestions(category) {
             try {
-                const response = await fetch('questions.json');
+                const response = await fetch(`${source}.json`);
                 const data = await response.json();
+    
                 if (category === 'mix') {
-                    questions = data; // Load all questions for the 'mix' category
+                    questions = data;
                 } else {
                     questions = data.filter(q => q.category === category);
                 }
+    
                 if (questions.length > 0) {
+                    shuffledQuestions = shuffleArray([...questions]);
+                    currentIndex = 0;
                     showQuestion();
                 } else {
                     questionElement.innerText = `No questions available for the category: ${category}.`;
@@ -144,12 +168,21 @@
                 feedbackElement.innerText = '';
             }
         }
-
+    
+        // Get next non-duplicate question
+        function getNextQuestion() {
+            if (currentIndex >= shuffledQuestions.length) {
+                shuffledQuestions = shuffleArray([...questions]);
+                currentIndex = 0;
+            }
+            return shuffledQuestions[currentIndex++];
+        }
+    
         function showQuestion() {
             resetState();
-            currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+            currentQuestion = getNextQuestion();
             questionElement.innerText = currentQuestion.question;
-
+    
             currentQuestion.options.forEach((option, index) => {
                 const button = document.createElement('button');
                 button.classList.add('option');
@@ -159,26 +192,26 @@
                 optionsContainer.appendChild(button);
             });
         }
-
+    
         function resetState() {
             feedbackElement.innerText = '';
             while (optionsContainer.firstChild) {
                 optionsContainer.removeChild(optionsContainer.firstChild);
             }
         }
-
+    
         function selectAnswer(e) {
             const selectedButton = e.target;
             const selectedAnswerIndex = parseInt(selectedButton.dataset.index);
             const isCorrect = selectedAnswerIndex === currentQuestion.correctAnswerIndex;
-
+    
             Array.from(optionsContainer.children).forEach((button, index) => {
                 if (index === currentQuestion.correctAnswerIndex) {
                     button.classList.add('correct');
                 }
-                button.disabled = true; // Disable further selection
+                button.disabled = true;
             });
-
+    
             if (isCorrect) {
                 selectedButton.classList.add('correct');
                 feedbackElement.innerText = 'Correct!';
@@ -186,26 +219,31 @@
                 selectedButton.classList.add('incorrect');
                 feedbackElement.innerText = `Incorrect. The correct answer was: ${currentQuestion.options[currentQuestion.correctAnswerIndex]}`;
             }
-
+    
             nextButton.style.display = 'block';
         }
-
+    
         nextButton.addEventListener('click', showQuestion);
-
+    
+        sourceDropdown.addEventListener('change', (event) => {
+            source = event.target.value;
+            loadQuestions(categoryDropdown.value);
+        });
+    
         categoryDropdown.addEventListener('change', (event) => {
             loadQuestions(event.target.value);
-            nextButton.style.display = 'none'; // Hide next button when category changes
+            nextButton.style.display = 'none';
             feedbackElement.innerText = '';
-            questions = []; // Clear previous questions
+            questions = [];
             if (questionElement.innerText !== 'Failed to load questions.') {
                 questionElement.innerText = 'Loading questions...';
                 optionsContainer.innerHTML = '';
             }
         });
-
-        // Load initial questions based on the default selected category
+    
         loadQuestions(categoryDropdown.value);
-        nextButton.style.display = 'none'; // Initially hide the next button
+        nextButton.style.display = 'none';
     </script>
+    
 </body>
 </html>
