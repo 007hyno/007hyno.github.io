@@ -4,81 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insurance Claim Calculator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .result-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .result-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .result-label {
+            font-weight: bold;
+            width: 200px;
+        }
+        .status {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .status.ok {
+            color: green;
+        }
+        .status.not-ok {
+            color: red;
+        }
+        .payment-info {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .notes {
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 p-4">
-    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
-        <h1 class="text-2xl font-bold mb-4 text-center">Insurance Claim Calculator</h1>
-
-        <div class="mb-4">
-            <label for="tentativeBill" class="block text-sm font-medium text-gray-700">Tentative Bill Amount</label>
-            <input type="number" id="tentativeBill" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 10000">
+<body>
+    <div class="container">
+        <h1>Insurance Claim Calculator</h1>
+        
+        <div class="form-group">
+            <label for="tentativeBill">Tentative Bill Amount:</label>
+            <input type="number" id="tentativeBill" min="0" step="0.01">
         </div>
-
-        <div class="mb-4">
-            <label for="balanceSumInsured" class="block text-sm font-medium text-gray-700">Balance Sum Insured</label>
-            <input type="number" id="balanceSumInsured" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 50000">
+        
+        <div class="form-group">
+            <label for="sumInsured">Sum Insured:</label>
+            <input type="number" id="sumInsured" min="0" step="0.01">
         </div>
-
-        <div class="mb-4">
-            <label for="sublimitCapping" class="block text-sm font-medium text-gray-700">Sublimit/Capping (Overall)</label>
-            <input type="number" id="sublimitCapping" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 8000">
+        
+        <div class="form-group">
+            <label for="balanceSumInsured">Balance Sum Insured:</label>
+            <input type="number" id="balanceSumInsured" min="0" step="0.01">
         </div>
-
-        <div class="mb-4">
-            <label for="deductible" class="block text-sm font-medium text-gray-700">Deductible (Per Hospitalization)</label>
-            <input type="number" id="deductible" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 1000">
+        
+        <div class="form-group">
+            <label for="sublimitCapping">Sublimit Capping (leave empty for no limit):</label>
+            <input type="number" id="sublimitCapping" min="0" step="0.01">
         </div>
-
-        <div class="mb-4">
-            <label for="copay" class="block text-sm font-medium text-gray-700">Copay (%)</label>
-            <input type="number" id="copay" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-2" placeholder="e.g., 10">
+        
+        <div class="form-group">
+            <label for="deductible">Deductible Amount:</label>
+            <input type="number" id="deductible" min="0" step="0.01" value="0">
         </div>
-
-        <button onclick="calculateClaim()" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Calculate</button>
-
-        <div id="results" class="mt-6 p-4 bg-gray-50 rounded-md">
-            <h2 class="text-lg font-semibold mb-2">Calculation Results:</h2>
-            <p id="insurancePays" class="mb-2"></p>
-            <p id="userPays"></p>
+        
+        <div class="form-group">
+            <label for="copay">Copay Percentage (%):</label>
+            <input type="number" id="copay" min="0" max="100" step="0.1" value="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="roomRent">Room Rent Type:</label>
+            <select id="roomRent">
+                <option value="Single room">Single room</option>
+                <option value="Twin sharing">Twin sharing</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+                <option value="Not Specified">Not Specified</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="employmentStatus">Employment Status:</label>
+            <select id="employmentStatus">
+                <option value="Active">Active</option>
+                <option value="Resigned">Resigned</option>
+                <option value="Retired">Retired</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <button onclick="calculateClaim()">Calculate Claim</button>
+        
+        <div class="result-container">
+            <div class="result-header">Final Output:</div>
+            
+            <div class="result-item">
+                <div class="result-label">Sum Insured:</div>
+                <div id="outputSumInsured">-</div>
+            </div>
+            
+            <div class="result-item">
+                <div class="result-label">Balance Sum Insured:</div>
+                <div id="outputBalanceSumInsured">-</div>
+            </div>
+            
+            <div class="result-item">
+                <div class="result-label">Room Rent:</div>
+                <div id="outputRoomRent">-</div>
+            </div>
+            
+            <div class="result-item">
+                <div class="result-label">Copay:</div>
+                <div id="outputCopay">-</div>
+            </div>
+            
+            <div class="result-item">
+                <div class="result-label">Sublimit:</div>
+                <div id="outputSublimit">-</div>
+            </div>
+            
+            <div class="result-item">
+                <div class="result-label">Deductible:</div>
+                <div id="outputDeductible">-</div>
+            </div>
+            
+            <div class="status" id="outputStatus">Please calculate to see results</div>
+            
+            <div class="notes" id="outputNotes"></div>
+            
+            <div class="payment-info">
+                <div id="insurancePays">Insurance Pays: 0.00</div>
+                <div id="userPays">User Pays: 0.00</div>
+            </div>
         </div>
     </div>
 
     <script>
         function calculateClaim() {
+            // Get input values
             const tentativeBill = parseFloat(document.getElementById('tentativeBill').value) || 0;
+            const sumInsured = parseFloat(document.getElementById('sumInsured').value) || 0;
             const balanceSumInsured = parseFloat(document.getElementById('balanceSumInsured').value) || 0;
-            const sublimitCapping = parseFloat(document.getElementById('sublimitCapping').value) || Infinity; // Use Infinity if no sublimit
+            const sublimitCapping = document.getElementById('sublimitCapping').value ? parseFloat(document.getElementById('sublimitCapping').value) : Infinity;
             const deductible = parseFloat(document.getElementById('deductible').value) || 0;
-            const copayPercentage = parseFloat(document.getElementById('copay').value) / 100 || 0;
+            const copayPercentage = parseFloat(document.getElementById('copay').value) || 0;
+            const roomRent = document.getElementById('roomRent').value || "Not Specified";
+            const employmentStatus = document.getElementById('employmentStatus').value || "Active";
 
+            // Format display values
+            const copayDisplay = copayPercentage > 0 ? `${copayPercentage}%` : "No";
+            const sublimitDisplay = isFinite(sublimitCapping) ? sublimitCapping : "No";
+            const deductibleDisplay = deductible > 0 ? deductible : "No";
+
+            // Initialize calculation variables
             let userPayment = 0;
             let insurancePayout = 0;
+            let treatmentOk = true;
+            let notes = [];
 
-            // Step 1: Apply Deductible
-            let amountAfterDeductible = tentativeBill - deductible;
-            userPayment += deductible;
-
-            if (amountAfterDeductible < 0) {
-                amountAfterDeductible = 0; // Deductible covers more than the bill
-                userPayment = tentativeBill; // User pays the full bill
-                insurancePayout = 0;
-            } else {
-                // Step 2: Apply Copay to the amount after deductible
-                const userCopayAmount = amountAfterDeductible * copayPercentage;
-                userPayment += userCopayAmount;
-
-                const amountAfterDeductibleAndCopay = amountAfterDeductible - userCopayAmount;
-
-                // Step 3 & 4: Determine Insurance Payout Limit and Actual Payout
-                const insuranceMaxLimit = Math.min(balanceSumInsured, sublimitCapping);
-                insurancePayout = Math.min(amountAfterDeductibleAndCopay, insuranceMaxLimit);
-
-                // Step 5: Adjust user payment if insurance hit a limit
-                userPayment += (amountAfterDeductibleAndCopay - insurancePayout);
+            // Step 1: Check if balance sum insured is sufficient
+            if (tentativeBill > balanceSumInsured) {
+                treatmentOk = false;
+                notes.push("Not ok, as balance sum insured is less than the tentative bill");
             }
 
+            // Step 2: Check sublimit restrictions
+            if (isFinite(sublimitCapping) && tentativeBill > sublimitCapping) {
+                notes.push("Tentative bill is more than the sublimit");
+            }
 
+            // Step 3: Apply Deductible
+            if (deductible > 0) {
+                userPayment += deductible;
+                notes.push(`Deductible amount of ${deductible} to be payable by the patient`);
+            }
+
+            // Step 4: Calculate remaining amount after deductible
+            let remainingAmount = tentativeBill - deductible;
+            if (remainingAmount < 0) remainingAmount = 0;
+
+            // Step 5: Apply Copay
+            if (copayPercentage > 0) {
+                const copayAmount = remainingAmount * (copayPercentage / 100);
+                userPayment += copayAmount;
+                remainingAmount -= copayAmount;
+            }
+
+            // Step 6: Determine Insurance Payout Limit
+            const maxInsuranceCoverage = Math.min(balanceSumInsured, isFinite(sublimitCapping) ? sublimitCapping : balanceSumInsured);
+            
+            // Step 7: Calculate actual insurance payout
+            insurancePayout = Math.min(remainingAmount, maxInsuranceCoverage);
+            
+            // Step 8: Adjust user payment if insurance doesn't cover everything
+            userPayment += (remainingAmount - insurancePayout);
+
+            // Step 9: Check employment status
+            if (employmentStatus === "Resigned") {
+                notes.push("Case is payable, with the note that for Cashless only after initial approval, as patient is on resignation");
+            }
+
+            // Update output fields
+            document.getElementById('outputSumInsured').innerText = sumInsured;
+            document.getElementById('outputBalanceSumInsured').innerText = balanceSumInsured;
+            document.getElementById('outputRoomRent').innerText = roomRent;
+            document.getElementById('outputCopay').innerText = copayDisplay;
+            document.getElementById('outputSublimit').innerText = sublimitDisplay;
+            document.getElementById('outputDeductible').innerText = deductibleDisplay;
+
+            // Set status message
+            if (treatmentOk) {
+                document.getElementById('outputStatus').innerText = "Ok to Start the treatment with above remarks";
+                document.getElementById('outputStatus').className = "status ok";
+            } else {
+                document.getElementById('outputStatus').innerText = notes[0]; // Use first note as main status for "Not ok" cases
+                document.getElementById('outputStatus').className = "status not-ok";
+            }
+
+            // Combine remaining notes (skip the first one if treatment not ok)
+            const remainingNotes = treatmentOk ? notes : notes.slice(1);
+            document.getElementById('outputNotes').innerText = remainingNotes.join(". ");
+
+            // Update payment information
             document.getElementById('insurancePays').innerText = `Insurance Pays: ${insurancePayout.toFixed(2)}`;
             document.getElementById('userPays').innerText = `User Pays: ${userPayment.toFixed(2)}`;
         }
